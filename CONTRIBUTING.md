@@ -23,13 +23,14 @@ Thank you for your interest in contributing to Certus Labs projects! 🎉
 
 Use clear and descriptive commit messages:
 
-```
+```txt
 Add feature: brief description
 
 Longer explanation of what changed and why, if needed.
 ```
 
 Good examples:
+
 - `Fix: Correct typo in documentation`
 - `Add: User authentication validation`
 - `Update: Improve error handling in API client`
@@ -52,4 +53,3 @@ Feel free to open an issue for questions or discussions!
 ---
 
 Thank you for contributing! 🙌
-

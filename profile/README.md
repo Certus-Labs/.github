@@ -17,4 +17,3 @@ We welcome contributions! Check out our [Contributing Guide](../CONTRIBUTING.md)
 ---
 
 *Last updated: January 2026*
-
