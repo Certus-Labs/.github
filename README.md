@@ -31,34 +31,49 @@ Custom configuration files in `configs/` need to be manually synced to each repo
 
 ## 🚀 Usage
 
-### Adding Configs to a New Repository
+### Sync to All Repositories (Quick!)
+
+Sync configs to all git repositories in the workspace at once:
+
+```bash
+cd .github/scripts
+./sync-configs.sh --all
+```
+
+Force overwrite existing configs (useful when updating):
+
+```bash
+./sync-configs.sh --all --force
+```
+
+### Adding Configs to a Single Repository
 
 1. Navigate to your repository:
 
-   ```bash
-   cd /path/to/your/repo
-   ```
+```bash
+cd /path/to/your/repo
+```
 
-2. Run the sync script from anywhere:
+1. Run the sync script from anywhere:
 
-   ```bash
-   /path/to/.github/scripts/sync-configs.sh .
-   ```
+```bash
+/path/to/.github/scripts/sync-configs.sh .
+```
 
-   Or if you're in the workspace:
+Or if you're in the workspace:
 
-   ```bash
-   ../.github/scripts/sync-configs.sh .
-   ```
+```bash
+../.github/scripts/sync-configs.sh .
+```
 
-3. Review and commit:
+1. Review and commit:
 
-   ```bash
-   git status
-   git add .cursorrules .markdownlint.json
-   git commit -m "Add shared config files"
-   git push
-   ```
+```bash
+git status
+git add .cursorrules .markdownlint.json
+git commit -m "Add shared config files"
+git push
+```
 
 ### Adding a New Config File
 
@@ -72,12 +87,14 @@ Custom configuration files in `configs/` need to be manually synced to each repo
    git push
    ```
 
-2. Sync to existing repositories:
+2. Sync to all repositories (including `.github` repo root):
 
    ```bash
    cd .github/scripts
-   ./sync-configs.sh ../../repo-name
+   ./sync-configs.sh --all
    ```
+
+   The script automatically copies configs to `.github` repo root as well!
 
 ### Updating Existing Configs
 
@@ -91,12 +108,19 @@ Custom configuration files in `configs/` need to be manually synced to each repo
    git push
    ```
 
-2. Sync to repositories (the script will skip existing files):
+2. Sync to all repositories with force overwrite:
 
    ```bash
-   # To overwrite, delete the old file first in the target repo
-   rm /path/to/repo/.cursorrules
-   ./sync-configs.sh /path/to/repo
+   cd .github/scripts
+   ./sync-configs.sh --all --force
+   ```
+
+   This will update all repos **including** the `.github` repo root.
+
+   Or sync to a single repository:
+
+   ```bash
+   ./sync-configs.sh /path/to/repo --force
    ```
 
 ## 📝 Available Configurations
