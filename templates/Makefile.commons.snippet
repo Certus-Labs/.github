@@ -1,0 +1,16 @@
+# --- Commons from .github ---
+.PHONY: ruler repo-init-commons
+
+ruler: ## Generate AI rules from .ruler/
+	npx --yes @intellectronica/ruler apply
+
+repo-init-commons: ## Initialize/update configs and AI rules from .github
+	@if [ -d "../.github" ]; then \
+		../.github/scripts/sync-configs.sh . --force; \
+		../.github/scripts/sync-ruler.sh . --force; \
+		$(MAKE) ruler; \
+	else \
+		echo "Error: .github repo not found at ../.github"; \
+		exit 1; \
+	fi
+# --- End Commons ---

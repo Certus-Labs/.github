@@ -1,0 +1,11 @@
+# Ruler Configuration
+# See https://ai.intellectronica.net/ruler
+
+# Only enable Cursor and Claude agents
+default_agents = ["cursor", "claude"]
+
+# To enable more agents, add them to the list above, e.g.:
+# default_agents = ["cursor", "claude", "copilot", "aider"]
+
+# Available agents: aider, amp, claude, cline, codex, copilot, cursor, 
+# gemini-cli, goose, kilocode, pi, windsurf, and more.

@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_DIR="$(cd "$SCRIPT_DIR/../configs" && pwd)"
+CONFIG_DIR="$(cd "$SCRIPT_DIR/../.repoconfig" && pwd)"
 WORKSPACE_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 # Parse flags
@@ -27,10 +27,10 @@ for arg in "$@"; do
     case $arg in
         --all)
             ALL=true
-            ;;
+        ;;
         --force)
             FORCE=true
-            ;;
+        ;;
     esac
 done
 
@@ -211,6 +211,9 @@ for SOURCE in "$CONFIG_DIR"/*; do
     echo -e "${GREEN}✓ Copied: $file${NC}"
     COPIED=$((COPIED + 1))
 done
+
+# Inject Makefile commons snippet
+"$SCRIPT_DIR/inject-makefile-commons.sh" "$REPO_PATH"
 
 echo "---"
 echo -e "${GREEN}Done! Copied: $COPIED, Skipped: $SKIPPED${NC}"
