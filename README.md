@@ -87,7 +87,7 @@ cd your-repo
 # 1. Customize project-specific rules
 vim .ruler/00-project.md
 
-# 2. Generate .cursorrules (requires Ruler CLI)
+# 2. Generate AGENTS.md (requires Ruler via npx)
 ruler apply
 
 # 3. Stage and commit

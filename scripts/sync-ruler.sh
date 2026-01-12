@@ -164,8 +164,8 @@ if [ "$ALL" = true ]; then
     echo ""
     echo "Next steps:"
     echo "  1. Review and customize 00-project.md in each repo"
-    echo "  2. Run 'ruler apply' in each repo to generate .cursorrules"
-    echo "  3. Add .cursorrules and CLAUDE.md to .gitignore"
+    echo "  2. Run 'make ruler' in each repo to generate AGENTS.md"
+    echo "  3. Generated files are auto-gitignored by Ruler"
     
     exit 0
 fi
@@ -219,7 +219,7 @@ echo ""
 echo "Next steps:"
 echo "  cd $REPO_PATH"
 echo "  # Customize .ruler/00-project.md with project-specific context"
-echo "  ruler apply                     # Generate .cursorrules"
+echo "  make ruler                      # Generate AGENTS.md"
 echo "  git status                      # Review changes"
 echo "  git add .ruler/                 # Stage ruler files"
 echo "  git commit -m 'Add/update AI rules'"
